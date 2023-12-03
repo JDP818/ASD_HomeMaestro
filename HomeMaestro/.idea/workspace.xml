@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="605444c1-fd8e-4f7f-a4a2-abd569f6cffe" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/Utils/ActuatorType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/Utils/Consts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/Utils/JsonReader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/Utils/SensorType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Controllers/HomeMaestroController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Controllers/RoomViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/DataAccess/Triggers/TriggerRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/Actuators/AcActuator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/Actuators/Actuator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/Actuators/Blinds.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/Actuators/Tv.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/Device.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/DeviceCollection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/IDevice.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/Sensors/LightSensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/Sensors/Sensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Devices/Sensors/TemperatureSensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Residency/Home.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Rooms/Room.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Rooms/RoomType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Triggers/ACTrigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Triggers/Trigger.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Entities/Triggers/TriggerType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Files/devices.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Files/home.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Files/rooms.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/HomeMaestroApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Devices/DeviceFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Devices/DeviceServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Residency/HomeFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Residency/HomeServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Rooms/RoomFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Rooms/RoomServices.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Triggers/ACTriggerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Triggers/ITriggerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/Entities/Sensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/Entities/SensorReading.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/Entities/TemperatureSensor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/Services/Discovery.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/Services/Factories/SensorFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/Services/SendData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/Services/SensorService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asd/homemaestro/hello-view.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/asd/homemaestro/room-view.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mosquitto/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mosquitto/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mosquitto/mosquitto/config/mosquitto.conf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mosquitto/mosquitto/log/mosquitto.log" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/sensors.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/HomeMaestro.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/Theme.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/config/VisualConfiguration.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/device/Device.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/integration/ExternalSystem.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/integration/IntegrationType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mosquitto/MqttConnection.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mosquitto/MqttPublisher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/mosquitto/MqttPublisher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/mosquitto/MqttSubscriber.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/mosquitto/MqttSubscriber.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/room/Kitchen.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/room/Room.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/room/sensor/Data.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/room/sensor/MotionSensor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/room/sensor/Sensor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/room/sensor/SensorType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/room/sensor/SimulatedMotionSensor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/room/sensor/SimulatedTemperatureSensor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/room/sensor/TemperatureSensor.java" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Use Maven wrapper" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="showPreview" value="true" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
+  <component name="ProjectId" id="2YcoBOlCopkieA3wdIUJDPsQmTf" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.27586207&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\JPF\Documents\ASD\HomeMaestro\src\main\java\asd\homemaestro\Files" />
+      <recent name="C:\Users\JPF\Documents\ASD\HomeMaestro\src\main\java\asd\homemaestro" />
+      <recent name="C:\Users\JPF\Documents\ASD\HomeMaestro\src\main\java\asd\homemaestro\Controllers" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="asd" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="asd.homemaestro.Utils" />
+    </key>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="605444c1-fd8e-4f7f-a4a2-abd569f6cffe" name="Changes" comment="" />
+      <created>1700834092956</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1700834092956</updated>
+      <workItem from="1700834093959" duration="3555000" />
+      <workItem from="1700845862805" duration="757000" />
+      <workItem from="1700846709743" duration="261000" />
+      <workItem from="1700846981098" duration="13142000" />
+      <workItem from="1700950598716" duration="7065000" />
+      <workItem from="1701006264211" duration="1215000" />
+      <workItem from="1701012271103" duration="8247000" />
+      <workItem from="1701023994399" duration="8198000" />
+      <workItem from="1701035862126" duration="14869000" />
+      <workItem from="1701206361549" duration="19222000" />
+      <workItem from="1701386075212" duration="37357000" />
+      <workItem from="1701636003965" duration="4429000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

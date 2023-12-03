@@ -1,0 +1,26 @@
+[
+  {
+    "Id": "room1",
+    "Name": "Kitchen"
+  },
+  {
+    "Id": "room2",
+    "Name": "LivingRoom"
+  },
+  {
+    "Id": "room3",
+    "Name": "Garden"
+  },
+  {
+    "Id": "room4",
+    "Name": "Kitchen"
+  },
+  {
+    "Id": "room5",
+    "Name": "Bedroom"
+  },
+  {
+    "Id": "room6",
+    "Name": "Garage"
+  }
+]

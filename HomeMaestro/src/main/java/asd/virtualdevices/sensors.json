@@ -1,0 +1,10 @@
+[
+  {
+    "Id": "1",
+    "Type": "Temperature"
+  },
+  {
+    "Id": "2",
+    "Type": "Temperature"
+  }
+]
