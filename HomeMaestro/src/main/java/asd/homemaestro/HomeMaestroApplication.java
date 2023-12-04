@@ -2,18 +2,12 @@ package asd.homemaestro;
 
 import asd.Utils.Consts;
 import asd.homemaestro.Controllers.HomeMaestroController;
+import asd.homemaestro.DataAccess.IRepository;
 import asd.homemaestro.DataAccess.Residency.HomeRepository;
 import asd.homemaestro.Entities.Residency.Home;
-import asd.homemaestro.Services.Residency.HomeFactory;
-import asd.homemaestro.mosquitto.MqttPublisher;
-import asd.homemaestro.mosquitto.MqttSubscriber;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -22,7 +16,7 @@ public class HomeMaestroApplication extends Application {
     private HomeMaestroController homeMaestroController;
     private FXMLLoader fxmlLoader;
     private Scene scene;
-    private final HomeRepository homeRepository = new HomeRepository();;
+    private final IRepository<Home> homeRepository = new HomeRepository();;
 
     @Override
     public void start(Stage stage) throws IOException {
@@ -37,7 +31,7 @@ public class HomeMaestroApplication extends Application {
     }
 
     private void setStartingScene() throws IOException {
-        Home home = homeRepository.getHome();
+        Home home = homeRepository.getElement();
         if (home == null){
             //return scene to set up home
         }else {

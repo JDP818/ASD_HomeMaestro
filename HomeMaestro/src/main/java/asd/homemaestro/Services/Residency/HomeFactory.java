@@ -1,15 +1,16 @@
 package asd.homemaestro.Services.Residency;
 
 import asd.Utils.Consts;
-import asd.homemaestro.DataAccess.Devices.DeviceRepository;
+import asd.homemaestro.DataAccess.IRepository;
 import asd.homemaestro.DataAccess.Rooms.RoomRepository;
 import asd.homemaestro.Entities.Residency.Home;
+import asd.homemaestro.Entities.Rooms.Room;
 import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 public class HomeFactory {
-    private final RoomRepository roomRepository;
+    private final IRepository<Room> roomRepository;
 
     public HomeFactory() {
         this.roomRepository = new RoomRepository();
@@ -21,7 +22,7 @@ public class HomeFactory {
         }
         var jsonObject = homeArray.getJSONObject(Consts.FIRST);
         Home home = CreateHomeFromJsonObject(jsonObject);
-        home.setRooms(roomRepository.getRooms(true));
+        home.setRooms(roomRepository.getElements());
         return home;
     }
 
