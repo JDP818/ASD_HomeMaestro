@@ -2,9 +2,9 @@ package asd.homemaestro.Entities.Triggers;
 
 import asd.Utils.Consts;
 
-public class AcTrigger2 extends Trigger{
+public class AcTrigger extends Trigger{
 
-    public AcTrigger2(String sensorId, String actuatorId, String sensorState, String actuatorState, TriggerType triggerType) {
+    public AcTrigger(String sensorId, String actuatorId, String sensorState, String actuatorState, TriggerType triggerType) {
         super(sensorId, actuatorId, sensorState, actuatorState, triggerType);
     }
 
