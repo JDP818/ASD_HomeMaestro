@@ -186,11 +186,27 @@
       <workItem from="1701035862126" duration="14869000" />
       <workItem from="1701206361549" duration="19222000" />
       <workItem from="1701386075212" duration="37357000" />
-      <workItem from="1701636003965" duration="21500000" />
+      <workItem from="1701636003965" duration="22588000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/asd/virtualdevices/Services/Factories/SensorFactory.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/asd/virtualdevices/Services/Factories/SensorFactory.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

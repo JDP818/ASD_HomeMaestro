@@ -9,7 +9,8 @@ import java.util.List;
 import static java.lang.Thread.sleep;
 
 public class Main {
-    public static void main(String[] args) { List<Sensor> sensors = SensorFactory.GetSensorList();
+    public static void main(String[] args) {
+        List<Sensor> sensors = SensorFactory.GetSensorList();
         for(Sensor sensor: sensors){
             SensorService sensorService = new SensorService(sensor);
             sensorService.start();
