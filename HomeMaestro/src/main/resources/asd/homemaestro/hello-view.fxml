@@ -14,7 +14,9 @@
         <menus>
           <Menu mnemonicParsing="false" text="Home">
             <items>
-              <MenuItem mnemonicParsing="false" text="Find Devices" />
+              <MenuItem mnemonicParsing="false" text="Add Room" />
+              <MenuItem mnemonicParsing="false" text="Add Sensor" />
+              <MenuItem mnemonicParsing="false" text="Add Actuator" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">

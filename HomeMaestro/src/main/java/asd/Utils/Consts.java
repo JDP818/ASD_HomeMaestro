@@ -17,10 +17,13 @@ public class Consts {
     public static final String HOME_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\home.json";
     public static final String ROOMS_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\rooms.json";
     public static final String DEVICES_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\devices.json";
+
+    //Json
     public static final String JSONID = "id";
     public static final String JSONTYPE = "Type";
     public static final String JSONDEVICETYPE = "DeviceType";
     public static final String JSONROOMID = "RoomId";
+    public static final String JSONSENSORID = "SensorId";
 
     //Mqtt connection
     public static final String SENSORDISCOVERY = "sensorDiscovery";

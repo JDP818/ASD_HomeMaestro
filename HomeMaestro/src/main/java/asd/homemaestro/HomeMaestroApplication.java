@@ -2,9 +2,9 @@ package asd.homemaestro;
 
 import asd.Utils.Consts;
 import asd.homemaestro.Controllers.HomeMaestroController;
+import asd.homemaestro.DataAccess.Residency.HomeRepository;
 import asd.homemaestro.Entities.Residency.Home;
 import asd.homemaestro.Services.Residency.HomeFactory;
-import asd.homemaestro.Services.Residency.HomeServices;
 import asd.homemaestro.mosquitto.MqttPublisher;
 import asd.homemaestro.mosquitto.MqttSubscriber;
 import javafx.application.Application;
@@ -22,6 +22,8 @@ public class HomeMaestroApplication extends Application {
     private HomeMaestroController homeMaestroController;
     private FXMLLoader fxmlLoader;
     private Scene scene;
+    private final HomeRepository homeRepository = new HomeRepository();;
+
     @Override
     public void start(Stage stage) throws IOException {
         setStartingScene();
@@ -35,7 +37,7 @@ public class HomeMaestroApplication extends Application {
     }
 
     private void setStartingScene() throws IOException {
-        Home home = HomeServices.getHome();
+        Home home = homeRepository.getHome();
         if (home == null){
             //return scene to set up home
         }else {

@@ -8,7 +8,7 @@ public class Room {
 
     private String Id;
     private String Name;
-    private List<DeviceCollection> DeviceGroups;
+    private DeviceCollection DeviceGroups;
 
     public Room() {
     }
@@ -29,11 +29,11 @@ public class Room {
         Name = name;
     }
 
-    public List<DeviceCollection> getDeviceGroups() {
+    public DeviceCollection getDeviceGroups() {
         return DeviceGroups;
     }
 
-    public void setDeviceGroups(List<DeviceCollection> deviceGroups) {
+    public void setDeviceGroups(DeviceCollection deviceGroups) {
         DeviceGroups = deviceGroups;
     }
 }

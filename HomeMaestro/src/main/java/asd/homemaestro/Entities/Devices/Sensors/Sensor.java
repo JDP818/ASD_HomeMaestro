@@ -7,18 +7,24 @@ import java.util.List;
 
 public abstract class Sensor extends Device
 {
-    //private List<Trigger> triggerList;
-    public Sensor(String id, String name, String State) {
-        super(id, name, State);
+    private List<Trigger> triggerList;
+
+    public Sensor() {
     }
 
-//    public List<Trigger> getTriggerList() {
-//        return triggerList;
-//    }
+    public Sensor(String id, String name, String State, List<Trigger> triggerList) {
 
-//    public void setTriggerList(List<Trigger> triggerList) {
-//        this.triggerList = triggerList;
-//    }
+        super(id, name, State);
+        this.triggerList = triggerList;
+    }
+
+    public List<Trigger> getTriggerList() {
+        return triggerList;
+    }
+
+    public void setTriggerList(List<Trigger> triggerList) {
+        this.triggerList = triggerList;
+    }
 
     public abstract void CreateReading();
 }

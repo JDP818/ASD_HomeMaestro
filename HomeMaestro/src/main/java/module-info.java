@@ -9,6 +9,9 @@ module asd.homemaestro {
     opens asd.homemaestro.Entities.Residency to com.google.gson;
     opens asd.homemaestro.Entities.Rooms to com.google.gson;
     opens asd.homemaestro.Entities.Devices to com.google.gson;
+    opens asd.homemaestro.Entities.Devices.Sensors to com.google.gson;
+    opens asd.homemaestro.Entities.Devices.Actuators to com.google.gson;
+    opens asd.homemaestro.Entities.Triggers to com.google.gson;
     opens asd.homemaestro to javafx.fxml;
     exports asd.homemaestro;
     exports asd.virtualdevices;

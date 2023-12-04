@@ -6,11 +6,14 @@ public abstract class Device implements IDevice
     private String Name;
     private String State;
 
-    public Device(String Id, String Name, String State)
+    public Device() {
+    }
+
+    public Device(String id, String name, String state)
     {
-        this.Id = Id;
-        this.Name = Name;
-        this.State = State;
+        this.Id = id;
+        this.Name = name;
+        this.State = state;
     }
     public String getId() {
         return Id;
@@ -34,21 +37,5 @@ public abstract class Device implements IDevice
 
     public void setState(String state) {
         State = state;
-    }
-
-
-    @Override
-    public void turnOn(){
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void turnOff(){
-        throw new UnsupportedOperationException();
-    }
-
-    @Override
-    public void getInfo(){
-        throw new UnsupportedOperationException();
     }
 }

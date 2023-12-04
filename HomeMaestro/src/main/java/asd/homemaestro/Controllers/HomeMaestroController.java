@@ -1,10 +1,8 @@
 package asd.homemaestro.Controllers;
 
-import asd.Utils.ActuatorType;
 import asd.Utils.Consts;
 import asd.homemaestro.Entities.Devices.Actuators.Actuator;
-import asd.homemaestro.Entities.Devices.Device;
-import asd.homemaestro.Entities.Devices.DeviceCollection;
+import asd.homemaestro.Entities.Devices.IDevice;
 import asd.homemaestro.Entities.Devices.Sensors.Sensor;
 import asd.homemaestro.Entities.Residency.Home;
 import asd.homemaestro.Entities.Rooms.Room;
@@ -38,6 +36,9 @@ public class HomeMaestroController {
     @FXML
     private ScrollPane roomContainer;
 
+    @FXML
+    private MenuItem menuItem;
+
     private Home Home;
 
     private int size = 50;
@@ -63,83 +64,81 @@ public class HomeMaestroController {
             Pane roomPane = CreateRoomPane(room.getName(), roomHeight);
             Pane sensorPane = CreateDevicePane(false);
             Pane actuatorPane = CreateDevicePane(true);
-            for (DeviceCollection deviceCollection : room.getDeviceGroups()
+            for (IDevice device : room.getDeviceGroups().getDeviceLeaves()
             ) {
-                for (Device device : deviceCollection.getDeviceList()) {
-                    if (device instanceof Sensor) {
-                        //Set Sensor Image
-                        Image image = new Image(Consts.GetSensorImage(device.getClass().getSimpleName()));
-                        ImageView imageView = new ImageView(image);
-                        imageView.setFitWidth(size);
-                        imageView.setFitHeight(size);
-                        Button imageButton = new Button();
-                        imageButton.setGraphic(imageView);
-                        imageButton.setLayoutX(layout);
-                        imageButton.setLayoutY(layout + sensorIndex * offset2);
-                        sensorPane.getChildren().addAll(imageButton);
-                        //Set On/Off button
-                        ToggleButton toggleButton = new ToggleButton("Off");
-                        toggleButton.setLayoutX(layout + 15);
-                        toggleButton.setLayoutY(layout * 4 + sensorIndex * offset2);
-                        MqttSubscriber mqttSubscriber = new MqttSubscriber();
-                        // Set Label to display readings
-                        Label readingLabel = new Label(device.getState());
-                        readingLabel.setLayoutX(offset - 200);
-                        readingLabel.setLayoutY(imageButton.getLayoutY());
-                        readingLabel.setPrefWidth(size * 4);
-                        readingLabel.setPrefHeight(size);
-                        readingLabel.setAlignment(Pos.CENTER);
-                        sensorPane.getChildren().addAll(readingLabel);
-                        //Set the On/Off button to start/close the mqtt connection
-                        toggleButton.setOnAction(event -> {
-                            try {
-                                updateToggleButton(toggleButton, device, readingLabel, mqttSubscriber);
-                            } catch (MqttException e) {
-                                throw new RuntimeException(e);
-                            }
-                        });
-                        sensorPane.getChildren().addAll(toggleButton);
-                        // Set Label to display the device Name
-                        Label deviceNamelabel = new Label();
-                        deviceNamelabel.setText(device.getName());
-                        deviceNamelabel.setLayoutX(imageButton.getLayoutX() + layout * 4);
-                        deviceNamelabel.setLayoutY(imageButton.getLayoutY());
-                        deviceNamelabel.setPrefWidth(size * 4);
-                        deviceNamelabel.setPrefHeight(size);
-                        deviceNamelabel.setAlignment(Pos.BASELINE_LEFT);
-                        deviceNamelabel.setFont(font);
-                        sensorPane.getChildren().addAll(deviceNamelabel);
-                        sensorIndex++;
-                    }else if(device instanceof Actuator){
-                        Image image = new Image(Consts.GetActuatorImage(device.getClass().getSimpleName()));
-                        ImageView imageView = new ImageView(image);
-                        imageView.setFitWidth(size);
-                        imageView.setFitHeight(size);
-                        Button imageButton = new Button();
-                        imageButton.setGraphic(imageView);
-                        imageButton.setLayoutX(layout);
-                        imageButton.setLayoutY(layout + actuatorIndex * offset2);
-                        actuatorPane.getChildren().addAll(imageButton);
-                        actuatorIndex++;
-                        // Set Label to display the Actuator Name
-                        Label actuatorNamelabel = new Label();
-                        actuatorNamelabel.setText(device.getName());
-                        actuatorNamelabel.setLayoutX(imageButton.getLayoutX() + layout * 4);
-                        actuatorNamelabel.setLayoutY(imageButton.getLayoutY());
-                        actuatorNamelabel.setPrefWidth(size * 4);
-                        actuatorNamelabel.setPrefHeight(size);
-                        actuatorNamelabel.setAlignment(Pos.BASELINE_LEFT);
-                        actuatorNamelabel.setFont(font);
-                        actuatorPane.getChildren().addAll(actuatorNamelabel);
-                        // Set Label to display Actuator state
-                        Label stateLabel = new Label(device.getState());
-                        stateLabel.setLayoutX(offset - 200);
-                        stateLabel.setLayoutY(imageButton.getLayoutY());
-                        stateLabel.setPrefWidth(size * 4);
-                        stateLabel.setPrefHeight(size);
-                        stateLabel.setAlignment(Pos.CENTER);
-                        actuatorPane.getChildren().addAll(stateLabel);
-                    }
+                if (device instanceof Sensor) {
+                    //Set Sensor Image
+                    Image image = new Image(Consts.GetSensorImage(device.getClass().getSimpleName()));
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitWidth(size);
+                    imageView.setFitHeight(size);
+                    Button imageButton = new Button();
+                    imageButton.setGraphic(imageView);
+                    imageButton.setLayoutX(layout);
+                    imageButton.setLayoutY(layout + sensorIndex * offset2);
+                    sensorPane.getChildren().addAll(imageButton);
+                    //Set On/Off button
+                    ToggleButton toggleButton = new ToggleButton("Off");
+                    toggleButton.setLayoutX(layout + 15);
+                    toggleButton.setLayoutY(layout * 4 + sensorIndex * offset2);
+                    MqttSubscriber mqttSubscriber = new MqttSubscriber();
+                    // Set Label to display readings
+                    Label readingLabel = new Label(device.getState());
+                    readingLabel.setLayoutX(offset - 200);
+                    readingLabel.setLayoutY(imageButton.getLayoutY());
+                    readingLabel.setPrefWidth(size * 4);
+                    readingLabel.setPrefHeight(size);
+                    readingLabel.setAlignment(Pos.CENTER);
+                    sensorPane.getChildren().addAll(readingLabel);
+                    //Set the On/Off button to start/close the mqtt connection
+                    toggleButton.setOnAction(event -> {
+                        try {
+                            updateToggleButton(toggleButton, device, readingLabel, mqttSubscriber);
+                        } catch (MqttException e) {
+                            throw new RuntimeException(e);
+                        }
+                    });
+                    sensorPane.getChildren().addAll(toggleButton);
+                    // Set Label to display the device Name
+                    Label deviceNamelabel = new Label();
+                    deviceNamelabel.setText(device.getName());
+                    deviceNamelabel.setLayoutX(imageButton.getLayoutX() + layout * 4);
+                    deviceNamelabel.setLayoutY(imageButton.getLayoutY());
+                    deviceNamelabel.setPrefWidth(size * 4);
+                    deviceNamelabel.setPrefHeight(size);
+                    deviceNamelabel.setAlignment(Pos.BASELINE_LEFT);
+                    deviceNamelabel.setFont(font);
+                    sensorPane.getChildren().addAll(deviceNamelabel);
+                    sensorIndex++;
+                }else if(device instanceof Actuator){
+                    Image image = new Image(Consts.GetActuatorImage(device.getClass().getSimpleName()));
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitWidth(size);
+                    imageView.setFitHeight(size);
+                    Button imageButton = new Button();
+                    imageButton.setGraphic(imageView);
+                    imageButton.setLayoutX(layout);
+                    imageButton.setLayoutY(layout + actuatorIndex * offset2);
+                    actuatorPane.getChildren().addAll(imageButton);
+                    actuatorIndex++;
+                    // Set Label to display the Actuator Name
+                    Label actuatorNamelabel = new Label();
+                    actuatorNamelabel.setText(device.getName());
+                    actuatorNamelabel.setLayoutX(imageButton.getLayoutX() + layout * 4);
+                    actuatorNamelabel.setLayoutY(imageButton.getLayoutY());
+                    actuatorNamelabel.setPrefWidth(size * 4);
+                    actuatorNamelabel.setPrefHeight(size);
+                    actuatorNamelabel.setAlignment(Pos.BASELINE_LEFT);
+                    actuatorNamelabel.setFont(font);
+                    actuatorPane.getChildren().addAll(actuatorNamelabel);
+                    // Set Label to display Actuator state
+                    Label stateLabel = new Label(device.getState());
+                    stateLabel.setLayoutX(offset - 200);
+                    stateLabel.setLayoutY(imageButton.getLayoutY());
+                    stateLabel.setPrefWidth(size * 4);
+                    stateLabel.setPrefHeight(size);
+                    stateLabel.setAlignment(Pos.CENTER);
+                    actuatorPane.getChildren().addAll(stateLabel);
                 }
             }
             int indexMax = max(sensorIndex, actuatorIndex);
@@ -198,7 +197,7 @@ public class HomeMaestroController {
         return devicePane;
     }
 
-    private void updateToggleButton(ToggleButton toggleButton, Device device, Label label, MqttSubscriber mqttSubscriber) throws MqttException {
+    private void updateToggleButton(ToggleButton toggleButton, IDevice device, Label label, MqttSubscriber mqttSubscriber) throws MqttException {
         if (toggleButton.isSelected()) {
             toggleButton.setText(Consts.STATE_ON);
             manageConnection(device, true, label, mqttSubscriber);
@@ -208,7 +207,7 @@ public class HomeMaestroController {
         }
     }
 
-    private void manageConnection(Device device, Boolean on, Label label, MqttSubscriber mqttSubscriber) throws MqttException {
+    private void manageConnection(IDevice device, Boolean on, Label label, MqttSubscriber mqttSubscriber) throws MqttException {
         if(on){
             String sensorConnectionString = Consts.GetSensorConnectionString(device.getId());
             mqttSubscriber.subscribeToTopic(sensorConnectionString, (topic, message) -> {
@@ -239,9 +238,9 @@ public class HomeMaestroController {
     public void moveToRoom(ActionEvent event, Room room) throws IOException {
         FXMLLoader loader = new FXMLLoader(HomeMaestroApplication.class.getResource(Consts.ROOM_FXML));
         Parent root = loader.load();
-        RoomViewController roomViewController = loader.getController();
-        roomViewController.setRoom(room);
-        roomViewController.addDevices();
+        //RoomViewController roomViewController = loader.getController();
+        //roomViewController.setRoom(room);
+        //roomViewController.addDevices();
         Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);
         stage.setScene(scene);

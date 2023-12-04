@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DeviceCollection implements IDevice{
-    private List<Device> deviceList = new ArrayList<Device>();
+    private List<IDevice> deviceList = new ArrayList<IDevice>();
 
     public void addDevice(Device device)
     {
@@ -16,32 +16,47 @@ public class DeviceCollection implements IDevice{
         deviceList.remove(device);
     }
 
-    public List<Device> getDeviceList() {
+    public List<IDevice> getDeviceLeaves() {
+        List<IDevice> devices = new ArrayList<>();
+        for (IDevice device : deviceList) {
+            if (device instanceof DeviceCollection) {
+                devices.addAll(((DeviceCollection) device).getDeviceLeaves());
+            } else {
+                devices.add(device);
+            }
+        }
         return deviceList;
     }
 
-    public void setDeviceList(List<Device> deviceList) {
+    public void setDeviceList(List<IDevice> deviceList) {
         this.deviceList = deviceList;
     }
 
     @Override
-    public void turnOn() {
-        for (Device device:deviceList) {
-            throw new UnsupportedOperationException();
+    public void setState(String state) {
+        for (IDevice device:deviceList) {
         }
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public void turnOff() {
-        for (Device device:deviceList) {
-            throw new UnsupportedOperationException();
+    public String getName() {
+        for (IDevice device:deviceList) {
         }
+        throw new UnsupportedOperationException();
     }
 
     @Override
-    public void getInfo() {
-        for (Device device:deviceList) {
-            throw new UnsupportedOperationException();
+    public String getState() {
+        for (IDevice device:deviceList) {
         }
+        throw new UnsupportedOperationException();
+    }
+
+    @Override
+    public String getId() {
+        for (IDevice device:deviceList) {
+        }
+        throw new UnsupportedOperationException();
     }
 }

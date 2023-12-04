@@ -3,7 +3,7 @@
     "Id": "1",
     "Name": "IndoorSensor",
     "DeviceType": "Sensor",
-    "Type": "Temperature",
+    "Type": "TemperatureSensor",
     "State": "Off",
     "RoomId": "room1"
   },
@@ -11,14 +11,14 @@
     "Id": "2",
     "Name": "OutdoorSensor",
     "DeviceType": "Sensor",
-    "Type": "Temperature",
+    "Type": "TemperatureSensor",
     "State": "Off",
     "RoomId": "room1"
   },
   {
     "Id": "3",
     "DeviceType": "Sensor",
-    "Type": "Temperature",
+    "Type": "TemperatureSensor",
     "State": "Off",
     "RoomId": "room2"
   },
@@ -26,14 +26,14 @@
     "Id": "4",
     "Name": "KitchenAC",
     "DeviceType": "Actuator",
-    "Type": "AC",
+    "Type": "AcActuator",
     "State": "Off",
     "RoomId": "room1"
   },
   {
     "Id": "5",
     "DeviceType": "Sensor",
-    "Type": "Temperature",
+    "Type": "TemperatureSensor",
     "State": "Off",
     "RoomId": "room5"
   },
@@ -41,7 +41,7 @@
     "Id": "6",
     "Name": "TeremometroGaragem",
     "DeviceType": "Sensor",
-    "Type": "Temperature",
+    "Type": "TemperatureSensor",
     "State": "Off",
     "RoomId": "room6"
   }
