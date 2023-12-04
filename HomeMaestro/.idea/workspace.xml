@@ -51,7 +51,7 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Devices/Sensors/TemperatureSensorFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Residency/HomeFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Rooms/RoomFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Triggers/AcTriggerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Triggers/AcTriggerFactory2.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Triggers/ITriggerFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/asd/homemaestro/Services/Triggers/TriggerFactory.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/Entities/Sensor.java" afterDir="false" />
@@ -187,7 +187,7 @@
       <workItem from="1701035862126" duration="14869000" />
       <workItem from="1701206361549" duration="19222000" />
       <workItem from="1701386075212" duration="37357000" />
-      <workItem from="1701636003965" duration="24871000" />
+      <workItem from="1701636003965" duration="25195000" />
     </task>
     <servers />
   </component>
