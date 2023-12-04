@@ -4,7 +4,7 @@ import asd.homemaestro.Entities.Triggers.AcTrigger;
 import com.google.gson.Gson;
 import org.json.JSONObject;
 
-public class AcTriggerFactory2 {
+public class AcTriggerFactory {
     public AcTrigger CreateAcTrigger(JSONObject jsonObject){
         AcTrigger acTrigger = null;
         Gson gson = new Gson();
