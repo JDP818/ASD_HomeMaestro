@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a59bedc3-8a5d-4c6b-873f-6d0056e4791d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/Utils/ActuatorType.java" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/Utils/ActuatorType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/Utils/Consts.java" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/Utils/Consts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/homemaestro/Entities/Devices/Actuators/Blinds.java" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/homemaestro/Entities/Devices/Actuators/Blinds.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/homemaestro/Entities/Devices/Sensors/LightSensor.java" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/homemaestro/Entities/Devices/Sensors/LightSensor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/homemaestro/Files/devices.json" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/homemaestro/Files/devices.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/homemaestro/Services/Devices/Sensors/SensorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/homemaestro/Services/Devices/Sensors/SensorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/virtualdevices/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/virtualdevices/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/virtualdevices/Services/Factories/SensorFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/virtualdevices/Services/Factories/SensorFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/virtualdevices/Services/SensorService.java" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/virtualdevices/Services/SensorService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/virtualdevices/sensors.json" beforeDir="false" afterPath="$PROJECT_DIR$/HomeMaestro/src/main/java/asd/virtualdevices/sensors.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +69,7 @@
       <workItem from="1701726566977" duration="685000" />
       <workItem from="1701727354862" duration="19000" />
       <workItem from="1701727384184" duration="121000" />
-      <workItem from="1701727525064" duration="6521000" />
+      <workItem from="1701727525064" duration="6886000" />
     </task>
     <servers />
   </component>
