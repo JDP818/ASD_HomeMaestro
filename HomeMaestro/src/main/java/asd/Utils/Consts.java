@@ -14,9 +14,10 @@ public class Consts {
     public static final String ROOM_FXML = "room-view.fxml";
     public static final String CREATE_HOME_FXML = "createHomeview.fxml";
     public static final String SENSOR_FILE_NAME = "src\\main\\java\\asd\\virtualdevices\\sensors.json";
-    public static final String HOME_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\home.json";
-    public static final String ROOMS_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\rooms.json";
-    public static final String DEVICES_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\devices.json";
+    public static final String HOME_FILE_NAME = "HomeMaestro/src/main/java/asd/homemaestro/Files/home.json";
+
+    public static final String ROOMS_FILE_NAME = "HomeMaestro/src/main/java/asd/homemaestro/Files/rooms.json";
+    public static final String DEVICES_FILE_NAME = "HomeMaestro/src/main/java/asd/homemaestro/Files/devices.json";
 
     //Json
     public static final String JSONID = "id";
@@ -46,6 +47,18 @@ public class Consts {
     //Actuator Images
     public static final String AC = "https://i.imgur.com/3uMsv8d.png";
 
+    // Sensor Types
+    public static final String LIGHT_SENSOR_TYPE = "LightSensor";
+
+    // Actuator Types
+    public static final String BLINDS_ACTUATOR_TYPE = "BlindsActuator";
+
+    // Sensor Images
+    public static final String LIGHT_SENSOR_IMAGE = "http://simpleicon.com/wp-content/uploads/light.png";
+
+    // Actuator Images
+    public static final String BLINDS_ACTUATOR_IMAGE = "https://icons.veryicon.com/png/o/object/material_design_icons/blinds-1.png";
+
 
     public static String GetRoomImage(String roomName){
 
@@ -68,6 +81,9 @@ public class Consts {
             case "TEMPERATURESENSOR" -> {
                 return TERMOMETER;
             }
+            case "LIGHTSENSOR" -> {
+                return LIGHT_SENSOR_IMAGE;
+            }
             default -> {
                 return DEFAULTSENSOR;
             }
@@ -77,8 +93,11 @@ public class Consts {
     public static String GetActuatorImage(String actuatorName){
 
         switch (actuatorName.toUpperCase()){
-            case "ACACTUATOR" -> {
+            case "ACTUATOR" -> {
                 return AC;
+            }
+            case "BLINDS" -> {
+                return BLINDS_ACTUATOR_IMAGE;
             }
             default -> {
                 return DEFAULTSENSOR;
