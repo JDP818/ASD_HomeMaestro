@@ -6,5 +6,9 @@
   {
     "Id": "2",
     "Type": "Temperature"
+  },
+  {
+    "Id": "3",
+    "Type": "Light"
   }
 ]
