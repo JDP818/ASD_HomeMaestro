@@ -21,7 +21,7 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Edit">
             <items>
-              <MenuItem mnemonicParsing="false" text="Custom Sensor Reading" />
+              <MenuItem fx:id="customSensorReading" mnemonicParsing="false" onAction="#handleCustomSensorReading" text="Custom Sensor Reading" />
             </items>
           </Menu>
         </menus>

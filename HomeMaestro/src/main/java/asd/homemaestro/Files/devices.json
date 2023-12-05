@@ -61,5 +61,6 @@
     "Type": "BlindsActuator",
     "State": "Off",
     "RoomId": "room2"
+
   }
 ]

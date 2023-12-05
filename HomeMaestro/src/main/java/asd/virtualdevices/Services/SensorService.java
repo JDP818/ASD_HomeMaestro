@@ -17,13 +17,10 @@ public class SensorService extends Thread{
     }
 
     public void run() {
-        if (sensor != null) {
-            sensorConnectionString = Consts.GetSensorConnectionString(sensor.getId());
-            StartDiscovery();
-        } else {
-            System.out.println("Sensor is null. Cannot proceed.");
-        }
+        sensorConnectionString = Consts.GetSensorConnectionString(sensor.getId());
+        StartDiscovery();
     }
+
     public void StartDiscovery(){
         mqttSubscriber.subscribeToTopic(
                 sensorConnectionString,

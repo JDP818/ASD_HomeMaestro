@@ -27,14 +27,9 @@ public class SensorFactory implements ISensorFactory{
     @Override
     public Sensor createSensorFromJson(JSONObject jsonObject) {
         Sensor sensor = null;
-        String sensorType = jsonObject.get(Consts.JSONTYPE).toString();
-
-        if (sensorType.equalsIgnoreCase(TemperatureSensor.class.getSimpleName())) {
+        if(jsonObject.get(Consts.JSONTYPE).toString().equalsIgnoreCase(TemperatureSensor.class.getSimpleName())){
             TemperatureSensorFactory temperatureSensorFactory = new TemperatureSensorFactory();
             sensor = temperatureSensorFactory.CreateTemperatureSensor(jsonObject);
-        } else if (sensorType.equalsIgnoreCase(LightSensor.class.getSimpleName())) {
-            LightSensorFactory lightSensorFactory = new LightSensorFactory();
-            sensor = lightSensorFactory.CreateLightSensor(jsonObject);
         }
         List<Trigger> triggers = triggerRepository.getElementsById(sensor.getId());
         if(!triggers.isEmpty())

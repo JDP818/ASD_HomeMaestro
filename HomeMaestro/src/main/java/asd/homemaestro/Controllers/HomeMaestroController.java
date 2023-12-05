@@ -41,9 +41,6 @@ public class HomeMaestroController {
     @FXML
     private ScrollPane roomContainer;
 
-    @FXML
-    private MenuItem menuItem;
-
     private Home Home;
 
     private int size = 50;
@@ -280,18 +277,5 @@ public class HomeMaestroController {
             }
         }
         return actuatorLablelEntry;
-    }
-
-    //CHANGE SCENE
-    public void moveToRoom(ActionEvent event, Room room) throws IOException {
-        FXMLLoader loader = new FXMLLoader(HomeMaestroApplication.class.getResource(Consts.ROOM_FXML));
-        Parent root = loader.load();
-        //RoomViewController roomViewController = loader.getController();
-        //roomViewController.setRoom(room);
-        //roomViewController.addDevices();
-        Stage stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
     }
 }

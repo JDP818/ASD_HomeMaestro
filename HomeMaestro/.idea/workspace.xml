@@ -66,7 +66,6 @@
       <change afterPath="$PROJECT_DIR$/src/main/java/asd/virtualdevices/sensors.json" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/resources/asd/homemaestro/hello-view.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/asd/homemaestro/room-view.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
@@ -105,8 +104,8 @@
       <list>
         <option value="Enum" />
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -189,7 +188,8 @@
       <workItem from="1701206361549" duration="19222000" />
       <workItem from="1701386075212" duration="37357000" />
       <workItem from="1701636003965" duration="25999000" />
-      <workItem from="1701725033379" duration="8165000" />
+      <workItem from="1701725033379" duration="9339000" />
+      <workItem from="1701804398827" duration="4944000" />
     </task>
     <servers />
   </component>
