@@ -1,68 +1,60 @@
 package asd.homemaestro.Entities.Triggers;
 
-import asd.Utils.Consts;
-import asd.Utils.SensorType;
-
 public abstract class Trigger {
 
-    private String sensorId;
-    private String actuatorId;
-    private String sensorState;
-    private String actuatorState;
-    private TriggerType triggerType;
+    private String SensorId;
+    private String ActuatorId;
+    private String SensorState;
+    private String ActuatorState;
+    private TriggerType TriggerType;
 
-    public Trigger(String sensorId, String actuatorId, String sensorState, String actuatorState, TriggerType triggerType) {
-        this.sensorId = sensorId;
-        this.actuatorId = actuatorId;
-        this.sensorState = sensorState;
-        this.actuatorState = actuatorState;
-        this.triggerType = triggerType;
+    public Trigger(String sensorId, String actuatorId, String sensorState, String actuatorState, String triggerType) {
+        this.SensorId = sensorId;
+        this.ActuatorId = actuatorId;
+        this.SensorState = sensorState;
+        this.ActuatorState = actuatorState;
+        this.TriggerType = TriggerType.valueOf(triggerType);
     }
 
     public String getSensorId() {
-        return sensorId;
+        return SensorId;
     }
 
     public void setSensorId(String sensorId) {
-        this.sensorId = sensorId;
+        SensorId = sensorId;
     }
 
     public String getActuatorId() {
-        return actuatorId;
+        return ActuatorId;
     }
 
     public void setActuatorId(String actuatorId) {
-        this.actuatorId = actuatorId;
+        ActuatorId = actuatorId;
     }
 
     public String getSensorState() {
-        return sensorState;
+        return SensorState;
     }
 
     public void setSensorState(String sensorState) {
-        this.sensorState = sensorState;
+        SensorState = sensorState;
     }
 
     public String getActuatorState() {
-        return actuatorState;
+        return ActuatorState;
     }
 
     public void setActuatorState(String actuatorState) {
-        this.actuatorState = actuatorState;
+        ActuatorState = actuatorState;
     }
 
-    public TriggerType getTriggerType() {
-        return triggerType;
+    public String getTriggerType() {
+        return TriggerType.toString();
     }
 
-    public void setTriggerType(TriggerType triggerType) {
-        this.triggerType = triggerType;
+    public void setTriggerType(String triggerType) {
+        TriggerType = TriggerType.valueOf(triggerType);
     }
 
-
-    public String isTriggered(String readingReceived){
-        return getActuatorState(readingReceived);
-    }
-
-    public abstract String getActuatorState(String readingReceived);
+    public abstract String getTriggerState(String readingReceived);
 }

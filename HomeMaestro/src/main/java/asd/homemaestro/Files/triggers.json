@@ -1,5 +1,18 @@
 [
   {
-
+    "SensorId": "1",
+    "ActuatorId": "4",
+    "SensorState": "27",
+    "ActuatorState": "18",
+    "TriggerType": "Higher",
+    "Type": "AcTrigger"
+  },
+  {
+    "SensorId": "1",
+    "ActuatorId": "4",
+    "SensorState": "18",
+    "ActuatorState": "Off",
+    "TriggerType": "Lower",
+    "Type": "AcTrigger"
   }
 ]

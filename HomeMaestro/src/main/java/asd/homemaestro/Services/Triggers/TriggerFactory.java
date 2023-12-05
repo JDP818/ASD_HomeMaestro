@@ -17,7 +17,7 @@ public class TriggerFactory implements ITriggerFactory {
     }
 
     @Override
-    public Trigger createTrigger(String sensorId, String actuatorId, String sensorState, String actuatorState, TriggerType triggerType) {
+    public Trigger createTrigger(String sensorId, String actuatorId, String sensorState, String actuatorState, String triggerType) {
         return new AcTrigger(sensorId, actuatorId, sensorState, actuatorState, triggerType);
     }
 

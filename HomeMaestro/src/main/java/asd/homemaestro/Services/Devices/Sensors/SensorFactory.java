@@ -1,8 +1,26 @@
 package asd.homemaestro.Services.Devices.Sensors;
 
 import asd.Utils.Consts;
+import asd.homemaestro.DataAccess.IRepository;
+import asd.homemaestro.DataAccess.Rooms.RoomRepository;
+import asd.homemaestro.DataAccess.Triggers.TriggerRepository;
 import asd.homemaestro.Entities.Devices.Sensors.Sensor;
 import asd.homemaestro.Entities.Devices.Sensors.TemperatureSensor;
+import asd.homemaestro.Entities.Rooms.Room;
+import asd.homemaestro.Entities.Triggers.Trigger;
+import com.google.gson.Gson;
+import org.json.JSONObject;
+
+import java.util.List;
+
+public class SensorFactory implements ISensorFactory{
+
+    private final IRepository<Trigger> triggerRepository;
+
+    public SensorFactory() {
+        this.triggerRepository = new TriggerRepository();
+    }
+
 import asd.homemaestro.Entities.Devices.Sensors.LightSensor;
 import com.google.gson.Gson;
 import org.json.JSONObject;
@@ -20,7 +38,9 @@ public class SensorFactory implements ISensorFactory {
             LightSensorFactory lightSensorFactory = new LightSensorFactory();
             sensor = lightSensorFactory.CreateLightSensor(jsonObject);
         }
-
+        List<Trigger> triggers = triggerRepository.getElementsById(sensor.getId());
+        if(!triggers.isEmpty())
+            sensor.setTriggerList(triggers);
         return sensor;
     }
 }

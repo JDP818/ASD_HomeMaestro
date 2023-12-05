@@ -6,6 +6,7 @@ import asd.homemaestro.Entities.Devices.IDevice;
 import asd.homemaestro.Entities.Devices.Sensors.Sensor;
 import asd.homemaestro.Entities.Residency.Home;
 import asd.homemaestro.Entities.Rooms.Room;
+import asd.homemaestro.Entities.Triggers.Trigger;
 import asd.homemaestro.HomeMaestroApplication;
 import asd.homemaestro.mosquitto.MqttPublisher;
 import asd.homemaestro.mosquitto.MqttSubscriber;
@@ -28,6 +29,10 @@ import javafx.stage.Stage;
 import org.eclipse.paho.client.mqttv3.MqttException;
 
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Callable;
 
 import static java.lang.Math.max;
 
@@ -64,6 +69,44 @@ public class HomeMaestroController {
             Pane roomPane = CreateRoomPane(room.getName(), roomHeight);
             Pane sensorPane = CreateDevicePane(false);
             Pane actuatorPane = CreateDevicePane(true);
+            Map<Actuator, Label> actuatorLabelMap = new HashMap<>();
+            //Initiate all the Actuators
+            for (IDevice device : room.getDeviceGroups().getDeviceLeaves()
+            ){
+                if(device instanceof Actuator){
+                    Image image = new Image(Consts.GetActuatorImage(device.getClass().getSimpleName()));
+                    ImageView imageView = new ImageView(image);
+                    imageView.setFitWidth(size);
+                    imageView.setFitHeight(size);
+                    Button imageButton = new Button();
+                    imageButton.setGraphic(imageView);
+                    imageButton.setLayoutX(layout);
+                    imageButton.setLayoutY(layout + actuatorIndex * offset2);
+                    actuatorPane.getChildren().addAll(imageButton);
+                    actuatorIndex++;
+                    // Set Label to display the Actuator Name
+                    Label actuatorNamelabel = new Label();
+                    actuatorNamelabel.setText(device.getName());
+                    actuatorNamelabel.setLayoutX(imageButton.getLayoutX() + layout * 4);
+                    actuatorNamelabel.setLayoutY(imageButton.getLayoutY());
+                    actuatorNamelabel.setPrefWidth(size * 4);
+                    actuatorNamelabel.setPrefHeight(size);
+                    actuatorNamelabel.setAlignment(Pos.BASELINE_LEFT);
+                    actuatorNamelabel.setFont(font);
+                    actuatorPane.getChildren().addAll(actuatorNamelabel);
+                    // Set Label to display Actuator state
+                    Label stateLabel = new Label(device.getState());
+                    stateLabel.setLayoutX(offset - 200);
+                    stateLabel.setLayoutY(imageButton.getLayoutY());
+                    stateLabel.setPrefWidth(size * 4);
+                    stateLabel.setPrefHeight(size);
+                    stateLabel.setAlignment(Pos.CENTER);
+                    actuatorPane.getChildren().addAll(stateLabel);
+                    //Add to Map
+                    actuatorLabelMap.put((Actuator)device, stateLabel);
+                }
+            }
+            //Initiate all the Sensors
             for (IDevice device : room.getDeviceGroups().getDeviceLeaves()
             ) {
                 if (device instanceof Sensor) {
@@ -93,7 +136,7 @@ public class HomeMaestroController {
                     //Set the On/Off button to start/close the mqtt connection
                     toggleButton.setOnAction(event -> {
                         try {
-                            updateToggleButton(toggleButton, device, readingLabel, mqttSubscriber);
+                            updateToggleButton(toggleButton, (Sensor)device, readingLabel, mqttSubscriber, actuatorLabelMap);
                         } catch (MqttException e) {
                             throw new RuntimeException(e);
                         }
@@ -110,37 +153,9 @@ public class HomeMaestroController {
                     deviceNamelabel.setFont(font);
                     sensorPane.getChildren().addAll(deviceNamelabel);
                     sensorIndex++;
-                }else if(device instanceof Actuator){
-                    Image image = new Image(Consts.GetActuatorImage(device.getClass().getSimpleName()));
-                    ImageView imageView = new ImageView(image);
-                    imageView.setFitWidth(size);
-                    imageView.setFitHeight(size);
-                    Button imageButton = new Button();
-                    imageButton.setGraphic(imageView);
-                    imageButton.setLayoutX(layout);
-                    imageButton.setLayoutY(layout + actuatorIndex * offset2);
-                    actuatorPane.getChildren().addAll(imageButton);
-                    actuatorIndex++;
-                    // Set Label to display the Actuator Name
-                    Label actuatorNamelabel = new Label();
-                    actuatorNamelabel.setText(device.getName());
-                    actuatorNamelabel.setLayoutX(imageButton.getLayoutX() + layout * 4);
-                    actuatorNamelabel.setLayoutY(imageButton.getLayoutY());
-                    actuatorNamelabel.setPrefWidth(size * 4);
-                    actuatorNamelabel.setPrefHeight(size);
-                    actuatorNamelabel.setAlignment(Pos.BASELINE_LEFT);
-                    actuatorNamelabel.setFont(font);
-                    actuatorPane.getChildren().addAll(actuatorNamelabel);
-                    // Set Label to display Actuator state
-                    Label stateLabel = new Label(device.getState());
-                    stateLabel.setLayoutX(offset - 200);
-                    stateLabel.setLayoutY(imageButton.getLayoutY());
-                    stateLabel.setPrefWidth(size * 4);
-                    stateLabel.setPrefHeight(size);
-                    stateLabel.setAlignment(Pos.CENTER);
-                    actuatorPane.getChildren().addAll(stateLabel);
                 }
             }
+
             int indexMax = max(sensorIndex, actuatorIndex);
             if(indexMax == 0){
                 indexMax = 1;
@@ -197,25 +212,26 @@ public class HomeMaestroController {
         return devicePane;
     }
 
-    private void updateToggleButton(ToggleButton toggleButton, IDevice device, Label label, MqttSubscriber mqttSubscriber) throws MqttException {
+    private void updateToggleButton(ToggleButton toggleButton, Sensor device, Label label, MqttSubscriber mqttSubscriber, Map<Actuator, Label> actuatorLabelMap)
+            throws MqttException {
         if (toggleButton.isSelected()) {
             toggleButton.setText(Consts.STATE_ON);
-            manageConnection(device, true, label, mqttSubscriber);
+            manageConnection(device, true, label, mqttSubscriber, actuatorLabelMap);
         } else {
             toggleButton.setText(Consts.STATE_OFF);
-            manageConnection(device, false, label, mqttSubscriber);
+            manageConnection(device, false, label, mqttSubscriber, actuatorLabelMap);
         }
     }
 
-    private void manageConnection(IDevice device, Boolean on, Label label, MqttSubscriber mqttSubscriber) throws MqttException {
+    private void manageConnection(Sensor device, Boolean on, Label label, MqttSubscriber mqttSubscriber, Map<Actuator, Label> actuatorLabelMap)
+            throws MqttException {
         if(on){
             String sensorConnectionString = Consts.GetSensorConnectionString(device.getId());
             mqttSubscriber.subscribeToTopic(sensorConnectionString, (topic, message) -> {
                 String receivedMessage = new String(message.getPayload());
                 Platform.runLater(() -> {
                     if(!receivedMessage.equalsIgnoreCase(Consts.SENSORCONNECTIONTURNON)){
-                        device.setState(receivedMessage);
-                        label.setText(device.getState());
+                        HandleMessage(device, receivedMessage, label, actuatorLabelMap);
                     }
                 });
             });
@@ -232,6 +248,38 @@ public class HomeMaestroController {
                     label.setText(device.getState());
             });
         }
+    }
+
+    private void HandleMessage(Sensor sensor, String receivedMessage, Label sensorLabel, Map<Actuator, Label> actuatorLabelMap){
+        sensor.setState(receivedMessage);
+        sensorLabel.setText(sensor.getState());
+        VerifyTriggers(receivedMessage, sensor.getTriggerList(), actuatorLabelMap);
+    }
+
+    private void VerifyTriggers(String receivedMessage, List<Trigger> triggers, Map<Actuator, Label> actuatorLabelMap){
+        for (Trigger trigger: triggers){
+            String triggerState = trigger.getTriggerState(receivedMessage);
+            if(!triggerState.equals(Consts.NO_TRIGGER)){
+                Map.Entry<Actuator, Label> actuatorLablelEntry = GetActuatorLablel(actuatorLabelMap, trigger.getActuatorId());
+                if(actuatorLablelEntry != null){
+                    Actuator actuator = actuatorLablelEntry.getKey();
+                    Label label = actuatorLablelEntry.getValue();
+                    actuator.setState(triggerState);
+                    label.setText(actuator.getState());
+                }
+            }
+        }
+    }
+
+    private Map.Entry<Actuator, Label> GetActuatorLablel(Map<Actuator, Label> actuatorLabelMap, String actuatorId){
+        Map.Entry<Actuator, Label> actuatorLablelEntry = null;
+        for (Map.Entry<Actuator, Label> entry : actuatorLabelMap.entrySet()) {
+            if (entry.getKey().getId().equals(actuatorId)) {
+                actuatorLablelEntry = entry;
+                break;
+            }
+        }
+        return actuatorLablelEntry;
     }
 
     //CHANGE SCENE

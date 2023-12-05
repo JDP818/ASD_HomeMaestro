@@ -17,8 +17,8 @@ public class TemperatureSensor extends Sensor{
 
     @Override
     public String CreateReading() {
-        int minRange = 22;
-        int maxRange = 24;
+        int minRange = 18;
+        int maxRange = 27;
         Random random = new Random();
         int randomInRange = random.nextInt(maxRange - minRange + 1) + minRange;
         SensorReading sensorReading = new SensorReading(randomInRange);
