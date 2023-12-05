@@ -44,22 +44,5 @@
     "Type": "TemperatureSensor",
     "State": "Off",
     "RoomId": "room6"
-  },
-
-  {
-    "Id": "7",
-    "Name": "LightSensor",
-    "DeviceType": "Sensor",
-    "Type": "Light",
-    "State": "Off",
-    "RoomId": "room1"
-  },
-  {
-    "Id": "8",
-    "Name": "BlindsActuator",
-    "DeviceType": "Actuator",
-    "Type": "Blinds",
-    "State": "Off",
-    "RoomId": "room2"
   }
 ]

@@ -5,7 +5,6 @@ import asd.Utils.JsonReader;
 import asd.virtualdevices.Entities.Sensor;
 import asd.Utils.SensorType;
 import asd.virtualdevices.Entities.TemperatureSensor;
-import asd.virtualdevices.Entities.LightSensor;
 import com.google.gson.Gson;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -28,18 +27,12 @@ public class SensorFactory {
         return sensorList;
     }
 
-    public static Sensor CreateSensor(JSONObject jsonObject) {
+    public static Sensor CreateSensor(JSONObject jsonObject){
         Sensor sensor = null;
         Gson gson = new Gson();
-        String sensorType = jsonObject.optString(Consts.JSONTYPE);
-
-        if (sensorType.equalsIgnoreCase(TemperatureSensor.class.getSimpleName())) {
+        if(jsonObject.get(Consts.JSONTYPE).toString().equalsIgnoreCase(TemperatureSensor.class.getSimpleName()) ){
             sensor = gson.fromJson(jsonObject.toString(), TemperatureSensor.class);
-        } else if (sensorType.equalsIgnoreCase(LightSensor.class.getSimpleName())) {
-            sensor = gson.fromJson(jsonObject.toString(), LightSensor.class);
         }
-
         return sensor;
     }
-
 }
