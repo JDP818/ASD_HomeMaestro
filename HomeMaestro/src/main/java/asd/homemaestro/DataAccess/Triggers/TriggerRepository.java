@@ -35,7 +35,7 @@ public class TriggerRepository implements IRepository<Trigger> {
 
     @Override
     public List<Trigger> getElementsById(String id) {
-        JSONArray triggersJson = JsonReader.ReadJson(Consts.ROOMS_FILE_NAME);
+        JSONArray triggersJson = JsonReader.ReadJson(Consts.TRIGGERS_FILE_NAME);
         return triggerFactory.createTriggerListFromJson(triggersJson, id);
     }
 }

@@ -8,6 +8,6 @@ import org.json.JSONObject;
 import java.util.List;
 
 public interface ITriggerFactory {
-    Trigger createTrigger(String sensorId, String actuatorId, String sensorState, String actuatorState, TriggerType triggerType);
+    Trigger createTrigger(String sensorId, String actuatorId, String sensorState, String actuatorState, String triggerType);
     List<Trigger> createTriggerListFromJson(JSONArray jsonArray, String deviceId);
 }

@@ -4,24 +4,20 @@ import asd.Utils.Consts;
 
 public class AcTrigger extends Trigger{
 
-    public AcTrigger(String sensorId, String actuatorId, String sensorState, String actuatorState, TriggerType triggerType) {
+    public AcTrigger(String sensorId, String actuatorId, String sensorState, String actuatorState, String triggerType) {
         super(sensorId, actuatorId, sensorState, actuatorState, triggerType);
     }
 
     @Override
-    public String getActuatorState(String readingReceived) {
-        String state = Consts.STATE_OFF;
+    public String getTriggerState(String readingReceived) {
+        String state = Consts.NO_TRIGGER;
         try{
-            if(super.getTriggerType() == TriggerType.Higher){
-                if(Integer.parseInt(super.getSensorState()) > Integer.parseInt(readingReceived)){
+            if(super.getTriggerType() == TriggerType.Higher.name()){
+                if(Integer.parseInt(super.getSensorState()) <= Integer.parseInt(readingReceived)){
                     state = super.getActuatorState();
                 };
-            } else if (super.getTriggerType() == TriggerType.Lower) {
-                if(Integer.parseInt(super.getSensorState()) < Integer.parseInt(readingReceived)){
-                    state = super.getActuatorState();
-                };
-            } else if (super.getTriggerType() == TriggerType.Equal) {
-                if(Integer.parseInt(super.getSensorState()) == Integer.parseInt(readingReceived)){
+            } else if (super.getTriggerType() == TriggerType.Lower.name()) {
+                if(Integer.parseInt(super.getSensorState()) >= Integer.parseInt(readingReceived)){
                     state = super.getActuatorState();
                 };
             }
