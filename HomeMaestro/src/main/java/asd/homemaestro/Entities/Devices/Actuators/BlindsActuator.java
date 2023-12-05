@@ -1,8 +1,8 @@
 package asd.homemaestro.Entities.Devices.Actuators;
 
-public class Blinds extends Actuator{
+public class BlindsActuator extends Actuator{
 
-    public Blinds(String Id, String Name, String State) {
+    public BlindsActuator(String Id, String Name, String State) {
         super(Id, Name, State);
     }
 

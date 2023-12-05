@@ -50,7 +50,7 @@
     "Id": "7",
     "Name": "LightSensor",
     "DeviceType": "Sensor",
-    "Type": "Light",
+    "Type": "LightSensor",
     "State": "Off",
     "RoomId": "room1"
   },
@@ -58,7 +58,7 @@
     "Id": "8",
     "Name": "BlindsActuator",
     "DeviceType": "Actuator",
-    "Type": "Blinds",
+    "Type": "BlindsActuator",
     "State": "Off",
     "RoomId": "room2"
   }

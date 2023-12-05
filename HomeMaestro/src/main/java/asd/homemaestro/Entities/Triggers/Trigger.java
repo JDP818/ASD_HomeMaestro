@@ -57,4 +57,5 @@ public abstract class Trigger {
     }
 
     public abstract String getTriggerState(String readingReceived);
+
 }

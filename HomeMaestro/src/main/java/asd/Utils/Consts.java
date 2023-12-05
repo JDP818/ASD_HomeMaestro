@@ -15,14 +15,11 @@ public class Consts {
     public static final String ROOM_FXML = "room-view.fxml";
     public static final String CREATE_HOME_FXML = "createHomeview.fxml";
     public static final String SENSOR_FILE_NAME = "src\\main\\java\\asd\\virtualdevices\\sensors.json";
-    public static final String HOME_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\home.json";
-    public static final String ROOMS_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\rooms.json";
-    public static final String DEVICES_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\devices.json";
-    public static final String TRIGGERS_FILE_NAME = "src\\main\\java\\asd\\homemaestro\\Files\\triggers.json";
     public static final String HOME_FILE_NAME = "HomeMaestro/src/main/java/asd/homemaestro/Files/home.json";
 
     public static final String ROOMS_FILE_NAME = "HomeMaestro/src/main/java/asd/homemaestro/Files/rooms.json";
     public static final String DEVICES_FILE_NAME = "HomeMaestro/src/main/java/asd/homemaestro/Files/devices.json";
+    public static final String TRIGGERS_FILE_NAME = "HomeMaestro/src/main/java/asd/homemaestro/Files/triggers.json";
 
     //Json
     public static final String JSONID = "id";

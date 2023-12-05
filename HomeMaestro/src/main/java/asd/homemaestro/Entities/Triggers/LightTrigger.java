@@ -2,27 +2,29 @@ package asd.homemaestro.Entities.Triggers;
 
 import asd.Utils.Consts;
 
-public class LightTrigger extends Trigger {
+public abstract class LightTrigger extends Trigger {
 
-    public LightTrigger(String sensorId, String actuatorId, String sensorState, String actuatorState, TriggerType triggerType) {
+    public LightTrigger(String sensorId, String actuatorId, String sensorState, String actuatorState, String triggerType) {
         super(sensorId, actuatorId, sensorState, actuatorState, triggerType);
     }
 
     @Override
-    public String getActuatorState(String readingReceived) {
+    public String getTriggerState(String readingReceived) {
         String state = Consts.STATE_OFF;
         try {
             int lightIntensity = Integer.parseInt(readingReceived);
+            TriggerType triggerType = TriggerType.valueOf(super.getTriggerType());
 
-            if (super.getTriggerType() == TriggerType.Higher) {
+
+            if (triggerType == TriggerType.Higher) {
                 if (lightIntensity > Integer.parseInt(super.getSensorState())) {
                     state = super.getActuatorState();
                 }
-            } else if (super.getTriggerType() == TriggerType.Lower) {
+            } else if (triggerType == TriggerType.Lower) {
                 if (lightIntensity < Integer.parseInt(super.getSensorState())) {
                     state = super.getActuatorState();
                 }
-            } else if (super.getTriggerType() == TriggerType.Equal) {
+            } else if (triggerType == TriggerType.EQUAL) {
                 if (lightIntensity == Integer.parseInt(super.getSensorState())) {
                     state = super.getActuatorState();
                 }

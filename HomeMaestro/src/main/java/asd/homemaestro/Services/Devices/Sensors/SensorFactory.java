@@ -10,6 +10,8 @@ import asd.homemaestro.Entities.Rooms.Room;
 import asd.homemaestro.Entities.Triggers.Trigger;
 import com.google.gson.Gson;
 import org.json.JSONObject;
+import asd.homemaestro.Entities.Devices.Sensors.LightSensor;
+
 
 import java.util.List;
 
@@ -21,11 +23,7 @@ public class SensorFactory implements ISensorFactory{
         this.triggerRepository = new TriggerRepository();
     }
 
-import asd.homemaestro.Entities.Devices.Sensors.LightSensor;
-import com.google.gson.Gson;
-import org.json.JSONObject;
 
-public class SensorFactory implements ISensorFactory {
     @Override
     public Sensor createSensorFromJson(JSONObject jsonObject) {
         Sensor sensor = null;
